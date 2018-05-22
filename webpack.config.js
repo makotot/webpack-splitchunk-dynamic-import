@@ -16,8 +16,8 @@ module.exports = {
   output: {
     publicPath: './',
     path: __dirname + '/dist',
-    chunkFilename: '[name].[hash].js',
-    filename: '[name].[hash].js'
+    chunkFilename: '[name]-[chunkhash].js',
+    filename: '[name].js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -25,14 +25,14 @@ module.exports = {
   },
   module: {
     rules: [
-    {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      include : APP_DIR,
-      use: {
-        loader: 'babel-loader'
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        include : APP_DIR,
+        use: {
+          loader: 'babel-loader'
+        }
       }
-    }
     ]
   },
   optimization: {
